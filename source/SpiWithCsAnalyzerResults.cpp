@@ -87,9 +87,9 @@ void SpiWithCsAnalyzerResults::GenerateExportFile( const char* file, DisplayBase
 
 		U64 packet_id = GetPacketContainingFrameSequential( i ); 
 		if( packet_id != INVALID_RESULT_INDEX )
-			ss << time_str << "," << packet_id << "," << mosi_str << "," << miso_str << std::endl;
+			ss << time_str << "," << packet_id << "," << mosi_str << "," << miso_str << "," << (unsigned int)frame.mType << std::endl;
 		else
-			ss << time_str << ",," << mosi_str << "," << miso_str << std::endl;  //it's ok for a frame not to be included in a packet.
+			ss << time_str << ",," << mosi_str << "," << miso_str << "," << (unsigned int)frame.mType << std::endl;  //it's ok for a frame not to be included in a packet.
 	
 		AnalyzerHelpers::AppendToFile( (U8*)ss.str().c_str(), ss.str().length(), f );
 		ss.str( std::string() );
