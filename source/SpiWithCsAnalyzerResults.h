@@ -1,16 +1,18 @@
-#ifndef SIMPLESERIAL_ANALYZER_RESULTS
-#define SIMPLESERIAL_ANALYZER_RESULTS
+#ifndef SPIWITHCS_ANALYZER_RESULTS
+#define SPIWITHCS_ANALYZER_RESULTS
 
 #include <AnalyzerResults.h>
 
-class SimpleSerialAnalyzer;
-class SimpleSerialAnalyzerSettings;
+#define SPI_ERROR_FLAG ( 1 << 0 )
 
-class SimpleSerialAnalyzerResults : public AnalyzerResults
+class SpiWithCsAnalyzer;
+class SpiWithCsAnalyzerSettings;
+
+class SpiWithCsAnalyzerResults : public AnalyzerResults
 {
 public:
-	SimpleSerialAnalyzerResults( SimpleSerialAnalyzer* analyzer, SimpleSerialAnalyzerSettings* settings );
-	virtual ~SimpleSerialAnalyzerResults();
+	SpiWithCsAnalyzerResults( SpiWithCsAnalyzer* analyzer, SpiWithCsAnalyzerSettings* settings );
+	virtual ~SpiWithCsAnalyzerResults();
 
 	virtual void GenerateBubbleText( U64 frame_index, Channel& channel, DisplayBase display_base );
 	virtual void GenerateExportFile( const char* file, DisplayBase display_base, U32 export_type_user_id );
@@ -22,8 +24,8 @@ public:
 protected: //functions
 
 protected:  //vars
-	SimpleSerialAnalyzerSettings* mSettings;
-	SimpleSerialAnalyzer* mAnalyzer;
+	SpiWithCsAnalyzerSettings* mSettings;
+	SpiWithCsAnalyzer* mAnalyzer;
 };
 
-#endif //SIMPLESERIAL_ANALYZER_RESULTS
+#endif //SPIWITHCS_ANALYZER_RESULTS
